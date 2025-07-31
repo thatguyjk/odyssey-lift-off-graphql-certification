@@ -1,22 +1,36 @@
 const gql = require("graphql-tag");
 
 const typeDefs = gql`
-  # A track is a module that teaches about different topics
+  "A track is a module that teaches about different topics"
   type Track {
     id: ID!
-    # The title of this track
+    "The title of this track"
     title: String!
-    # The tracks author
+    "The tracks author"
     author: Author!
-    # The thumbnail for the track
+    "The thumbnail for the track"
     thumbnail: String
-    # The total length of the track
+    "The total length of the track"
     length: Int
-    # The number of modules that this track contains
+    "The number of modules that this track contains"
     modulesCount: Int
+    "The description of what this Track is about"
+    description: String
+    "The number of view this Track has"
+    numberOfViews: Int
+    "The list of modules for this track"
+    modules: [Module!]!
   }
 
-  # Author of a complete track or module
+  type Module {
+    id: ID!
+    "The title of this module"
+    title: String!
+    "The length of this module in minutes"
+    length: Int
+  }
+
+  "Author of a complete track or module"
   type Author {
     id: ID!
     name: String!
@@ -24,7 +38,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    # Get tracks array for homepage grid
+    "Get tracks array for homepage grid"
     tracksForHome: [Track!]!
   }
 `;
