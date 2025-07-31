@@ -25,7 +25,7 @@ const typeDefs = gql`
 
   type Query {
     # Get tracks array for homepage grid
-    typesForHome: [Track!]!
+    tracksForHome: [Track!]!
   }
 `;
 
