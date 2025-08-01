@@ -40,6 +40,8 @@ const typeDefs = gql`
   type Query {
     "Get tracks array for homepage grid"
     tracksForHome: [Track!]!
+    "Get a single Track based on an id"
+    track(id: ID!): Track
   }
 `;
 
