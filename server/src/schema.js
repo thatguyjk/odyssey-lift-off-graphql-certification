@@ -43,6 +43,21 @@ const typeDefs = gql`
     "Get a single Track based on an id"
     track(id: ID!): Track
   }
+
+  type Mutation {
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+  }
+
+  type IncrementTrackViewsResponse {
+    "The status code of the mutation"
+    code: Int!
+    "Tells if the operation of the mutation was a success"
+    success: Boolean!
+    "A message that is sent to the client on the status of the mutation"
+    message: String!
+    "The data that the mutation reacts on"
+    track: Track
+  }
 `;
 
 module.exports = typeDefs;
